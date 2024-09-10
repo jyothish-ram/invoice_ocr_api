@@ -4,7 +4,6 @@ This project is an ocr data extraction from Invoices or bills. THis project util
 
 ## Identifiable parameters
 
-`AlcoholPercentage`,
 `Company Name`, 
 `Company Address`, 
 `Customer Name`, 
