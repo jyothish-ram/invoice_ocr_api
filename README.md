@@ -1,6 +1,6 @@
 # Invoice OCR API
 
-This project is an ocr data extraction from Invoices or bills. THis project utilizes Tensorflow, Pytesseract, Ollama, Gemma_2b.
+This project is an OCR data extraction from Invoices or bills. This project utilizes TensorFlow, Pytesseract, Ollama, and Gemma_2b.
 
 ## Identifiable parameters
 
@@ -21,26 +21,33 @@ This project is an ocr data extraction from Invoices or bills. THis project util
 ## Working
 
 This project mainly consists of three parts
-1. Tensorflow Model: this model finds the roi(region of interest) from the invoice Image. the roi is given to tesseract.
-2. Tesseract: Pytessract is used to extract text from the image(ocr engine).
-3. NLP: Gemma_2b is used with Ollama for NLP which corrects the text extracted by tesseract 
+1. Tensorflow Model: this model finds the ROI(region of interest) from the invoice Image. the ROI is given to Tesseract.
+2. Tesseract: Pytessract extracts text from the image(ocr engine).
+3. NLP: Gemma_2b is used with Ollama for NLP which corrects the text extracted by Tesseract 
 
 > [!NOTE]
-> - tensorflow model is stored in `models/saved_model` folder
+> - Tensorflow model is stored in `models/saved_model` folder
 
 ## Installation
 
 > [!NOTE]
 > - `python3 -m venv venv` to create python virtual env
-> - `./venv/scripts/activate` to activate venv in windows or `source venv/bin/activate` in linux
+> - `./venv/scripts/activate` to activate venv in Windows or `source venv/bin/activate` in Linux
 > - `run pip install -r requirements.txt` to install necessary packages
-> - Need to in install Ollama as per ollama documentation, for linux `curl -fsSL https://ollama.com/install.sh | sh`
+> - Need to install Ollama as per Ollama documentation, for Linux `curl -fsSL https://ollama.com/install.sh | sh`
 > - run `ollama run gemma2:2b` to download NLP Gemma_2b model.
+> - run `sudo apt install tesseract-ocr` to install tesseract on Linux machines or for Windows, visit (tesseract for windows)[https://tesseract-ocr.github.io/tessdoc/Compiling.html#windows]
 > - To run the program `python app.py`
 
 ### API Request Model
 
-Sample API Request Model(POST) body:
+Sample API Request Model(POST)
+> - headers:
+```
+Content-Type : application/json
+```
+
+> - body:
 
 ```
     {
