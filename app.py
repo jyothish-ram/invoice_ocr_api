@@ -47,6 +47,8 @@ def preprocess_image(image):
 matplotlib.use('TkAgg')
 model_path = 'models/saved_model'
 model = tf.saved_model.load(model_path)
+# Save the model to a single .h5 file
+model.save("model.h5")
    
     
 @app.route('/ocr',methods=['POST','GET'])
